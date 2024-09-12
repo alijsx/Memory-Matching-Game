@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Memory Game</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Card Flip Animation */
+    .card {
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      backface-visibility: hidden;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-8">Memory Matching Game</h1>
+
+    <!-- Game Stats -->
+    <div id="game-stats" class="flex justify-center space-x-8 text-lg font-semibold mb-6">
+      <div class="flex flex-col items-center">
+        <p>Attempts</p>
+        <span id="attempts" class="text-2xl font-bold text-yellow-300">0</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <p>Time</p>
+        <span id="timer" class="text-2xl font-bold text-green-300">0</span> <p>seconds</p>
+      </div>
+    </div>
+
+    <!-- Restart Button -->
+    <div class="text-center mb-8">
+      <button onclick="restartGame()" class="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-blue-500 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+        Restart Game
+      </button>
+    </div>
+
+    <!-- Game Board -->
+    <div id="game-board" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-xl mx-auto"></div>
+  </div>
+</body>
+</html>
